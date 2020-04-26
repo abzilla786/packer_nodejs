@@ -29,7 +29,7 @@
     },
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-    "ami_name": "ABZ-IT-Jobs-testing-env-no-code project-{{timestamp}}"
+    "ami_name": "ABZ-IT-Jobs-testing-env project-{{timestamp}}"
   }],
 
   "provisioners": [
@@ -37,6 +37,19 @@
           "type": "chef-solo",
           "cookbook_paths": ["./berks-cookbooks"],
           "run_list":["node::default"]
-    }
+        },
+        {
+          "type": "shell",
+          "inline": ["mkdir /home/ubuntu/appjs"]
+        },
+        {
+          "type": "file",
+          "source": "app/",
+          "destination": "/home/ubuntu/appjs"
+        },
+        {
+          "type": "shell",
+          "inline": ["cd /home/ubuntu/appjs", "sudo npm install"]
+        }
   ]
 }
