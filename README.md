@@ -1,6 +1,6 @@
 # Packer for nodejs
 
-This packer creates an AMI that is provisioned using the mongo cookbook. This creates a perfect testing environment for nodejs and can be used to spin up many machines with the same environment.
+This packer creates an AMI that is provisioned using the nodejs cookbook. This creates a perfect testing environment for nodejs and can be used to spin up many machines with the same environment.
 
 ## pre-requisites
 - Packer
